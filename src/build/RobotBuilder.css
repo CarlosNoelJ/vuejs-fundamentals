@@ -86,3 +86,14 @@
   .right .next-selector {
     right: -3px;
   }
+
+  .robot-name{
+    position: absolute;
+    top: -25px;
+    text-align: center;
+    width: 100%;
+  }
+
+  .sale{
+    color: red;
+  }

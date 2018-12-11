@@ -26,6 +26,17 @@ export default {
           selecteBaseIndex:0,
         };
     },
+    computed:{
+        selectedRobot(){
+            return {
+                head: availableParts.heads[this.selectedHeadIndex],
+                leftArm: availableParts.arms[this.selecteLeftdArmIndex],
+                rightArm: availableParts.arms[this.selecteRightdArmIndex],
+                torso: availableParts.torsos[this.selectedTorsoIndex],
+                base: availableParts.bases[this.selecteBaseIndex],
+            };
+        },
+    },
     methods:{
       selectNextHead(){
          this.selectedHeadIndex = getNextValidateIndex(this.selectedHeadIndex, availableParts.heads.length);
