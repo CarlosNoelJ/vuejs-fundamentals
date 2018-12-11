@@ -1,6 +1,8 @@
-<div>
+<div class="content">
+  <button class="add-to-cart" @click="addToCart()">Add to Cart</button>
     <div class="top-row">
-      <div class="top part">
+      <!-- <div class="top part" :style="headBorderStyle"> -->
+      <div class="top part" :class="{'sale-border': selectedRobot.head.onSale}">
         <div  class="robot-name">
           {{ selectedRobot.head.title }}
           <span v-if="selectedRobot.head.onSale" class="sale">Sale!</span>
@@ -33,5 +35,22 @@
         <button @click="selectPreviousBase()" class="prev-selector">&#9668;</button>
         <button @click="selectNextBase()" class="next-selector">&#9658;</button>
       </div>
+    </div>
+    <div>
+      <h1>Cart</h1>
+      <table>
+        <thead>
+          <tr>
+            <th>Robot</th>
+            <th class="cost">Cost</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="(robot, index) in cart" :key="index">
+            <td>{{robot.head.title}}</td>
+            <td class="cost">{{robot.cost}}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>

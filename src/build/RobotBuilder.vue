@@ -19,6 +19,7 @@ export default {
     data(){
         return {
           availableParts,
+          cart:[],
           selectedHeadIndex:0,
           selectedTorsoIndex:0,
           selecteLeftdArmIndex:0,
@@ -27,6 +28,10 @@ export default {
         };
     },
     computed:{
+        headBorderStyle(){
+            return {border: this.selectedRobot.head.onSale ? '3px solid red': '3px solid #aaa'
+            };
+        },
         selectedRobot(){
             return {
                 head: availableParts.heads[this.selectedHeadIndex],
@@ -38,36 +43,41 @@ export default {
         },
     },
     methods:{
-      selectNextHead(){
-         this.selectedHeadIndex = getNextValidateIndex(this.selectedHeadIndex, availableParts.heads.length);
-      },
-      selectPreviousHead(){
-           this.selectedHeadIndex = getPreviousValidIndex(this.selectedHeadIndex, availableParts.heads.length);
-      },
-      selectPreviousTorso(){
-          this.selectedTorsoIndex = getPreviousValidIndex(this.selectedTorsoIndex, availableParts.torsos.length);
-      },
-      selectNextTorso(){
-          this.selectedTorsoIndex = getNextValidateIndex(this.selectedTorsoIndex, availableParts.torsos.length);
-      },
-      selectPreviousLeftArm(){
-          this.selecteLeftdArmIndex = getPreviousValidIndex(this.selecteLeftdArmIndex,availableParts.arms.length);
-      },
-      selectNextLeftArm(){
-          this.selecteLeftdArmIndex = getNextValidateIndex(this.selecteLeftdArmIndex,availableParts.arms.length);
-      },
-      selectPreviousRightArm(){
-          this.selecteRightdArmIndex = getPreviousValidIndex(this.selecteRightdArmIndex,availableParts.arms.length);
-      },
-      selectNextRightArm(){
-          this.selecteRightdArmIndex = getNextValidateIndex(this.selecteRightdArmIndex,availableParts.arms.length);
-      },
-      selectPreviousBase(){
-          this.selecteBaseIndex = getPreviousValidIndex(this.selecteBaseIndex,availableParts.arms.length);
-      },
-      selectNextBase(){
-          this.selecteBaseIndex = getNextValidateIndex(this.selecteBaseIndex,availableParts.arms.length);
-      },
+        addToCart(){
+            const robot = this.selectedRobot;
+            const cost = robot.head.cost + robot.leftArm.cost + robot.rightArm.cost + robot.torso.cost + robot.base.cost;
+            this.cart.push(Object.assign({}, robot, { cost }));
+        },
+        selectNextHead(){
+            this.selectedHeadIndex = getNextValidateIndex(this.selectedHeadIndex, availableParts.heads.length);
+        },
+        selectPreviousHead(){
+            this.selectedHeadIndex = getPreviousValidIndex(this.selectedHeadIndex, availableParts.heads.length);
+        },
+        selectPreviousTorso(){
+            this.selectedTorsoIndex = getPreviousValidIndex(this.selectedTorsoIndex, availableParts.torsos.length);
+        },
+        selectNextTorso(){
+            this.selectedTorsoIndex = getNextValidateIndex(this.selectedTorsoIndex, availableParts.torsos.length);
+        },
+        selectPreviousLeftArm(){
+            this.selecteLeftdArmIndex = getPreviousValidIndex(this.selecteLeftdArmIndex,availableParts.arms.length);
+        },
+        selectNextLeftArm(){
+            this.selecteLeftdArmIndex = getNextValidateIndex(this.selecteLeftdArmIndex,availableParts.arms.length);
+        },
+        selectPreviousRightArm(){
+            this.selecteRightdArmIndex = getPreviousValidIndex(this.selecteRightdArmIndex,availableParts.arms.length);
+        },
+        selectNextRightArm(){
+            this.selecteRightdArmIndex = getNextValidateIndex(this.selecteRightdArmIndex,availableParts.arms.length);
+        },
+        selectPreviousBase(){
+            this.selecteBaseIndex = getPreviousValidIndex(this.selecteBaseIndex,availableParts.arms.length);
+        },
+        selectNextBase(){
+            this.selecteBaseIndex = getNextValidateIndex(this.selecteBaseIndex,availableParts.arms.length);
+        },
     },
 };
 </script>

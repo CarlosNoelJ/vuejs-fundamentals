@@ -97,3 +97,28 @@
   .sale{
     color: red;
   }
+
+  .content{
+    position: relative;
+  }
+
+  .add-to-cart{
+    position: absolute;
+    right: 30px;
+    width: 220px;
+    padding: 3px;
+    font-size: 16px;
+  }
+
+  td, th{
+    text-align: left;
+    padding: 5px;
+    padding-right: 20px;
+  }
+
+  .cost{
+    text-align: right;
+  }
+  .sale-border{
+    border: 3px solid red;
+  }
