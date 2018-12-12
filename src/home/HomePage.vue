@@ -5,9 +5,9 @@
 <script>
 export default {
   name: 'HomePage',
-  // props: {
-  //   msg: String,
-  // },
+  props: {
+    msg: String,
+  },
 };
 </script>
 
