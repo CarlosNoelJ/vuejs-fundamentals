@@ -2,6 +2,7 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import HomePage from '../home/HomePage.vue';
 import RobotBuilder from '../build/RobotBuilder.vue';
+import Partinfo from '../parts/Partinfo.vue';
 
 Vue.use(Router);
 
@@ -14,5 +15,11 @@ export default new Router({
     path: '/build',
     name: 'Build',
     component: RobotBuilder,
+  },
+  {
+    path: '/parts/:partType/:id',
+    name: 'Parts',
+    component: Partinfo,
+    props: true,
   }],
 });
