@@ -14,12 +14,17 @@
               Build
             </router-link>
           </li>
+          <li class="nav-item" >
+            <router-link class="nav-link" active-class="foo" :to="{name: 'BrowseParts'}">
+              Browse Parts
+            </router-link>
+          </li>
         </ul>
       </nav>
     </header>
     <main>
       <!-- <RobotBuilder /> -->
-      <router-view/>
+      <router-view />
     </main>
   </div>
 </template>
