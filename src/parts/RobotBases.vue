@@ -4,7 +4,7 @@
     The torso is the central part of your robot that holds everything
     together. Choosing the right torso will help ensure your robot
     functions well with the parts you choose.
-    <div v-for="(bases, idx) in bases" :key="idx">
+    <div v-for="(bases, idx) in parts.bases" :key="idx">
         <h4>{{bases.title}}</h4>
         <div>{{bases.description}}</div>
     </div>
@@ -12,13 +12,11 @@
 </template>
 
 <script>
-import parts from '../data/parts';
+import getPartsMixin from './get-parts-mixin';
 
 export default {
     name: 'RobotBases',
-    data() {
-        return { bases: parts.bases };
-    },
+    mixin: [getPartsMixin],
 };
 </script>
 
