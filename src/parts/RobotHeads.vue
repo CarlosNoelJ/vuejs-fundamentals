@@ -15,7 +15,7 @@ import getPartsMixin from './get-parts-mixin';
 
 export default {
     name: 'RobotHeads',
-    mixin: [getPartsMixin],
+    mixins: [getPartsMixin],
 };
 </script>
 

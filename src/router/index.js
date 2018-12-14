@@ -1,4 +1,4 @@
-import Vue from 'vue';
+ import Vue from 'vue';
 import Router from 'vue-router';
 import HomePage from '../home/HomePage.vue';
 import RobotBuilder from '../build/RobotBuilder.vue';

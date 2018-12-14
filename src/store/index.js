@@ -7,14 +7,14 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     cart: [],
-    part: null,
+    parts: null,
   },
   mutations: {
     addRobotToCart(state, robot) {
       state.cart.push(robot);
     },
-    updateParts(state, part) {
-      state.part = part;
+    updateParts(state, parts) {
+      state.parts = parts;
     },
   },
   actions: {

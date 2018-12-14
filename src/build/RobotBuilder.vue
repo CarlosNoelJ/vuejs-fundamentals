@@ -92,7 +92,7 @@ export default {
   //   mixins: [createdHockMixin],
   computed: {
     availableParts() {
-      return this.$store.state.part;
+      return this.$store.state.parts;
     },
     saleBorderClass() {
       return this.selectedRobot.head.onSale ? "sale-border" : "";
@@ -104,15 +104,6 @@ export default {
           : "3px solid #aaa"
       };
     }
-    // selectedRobot() {
-    //   return {
-    //     head: {},
-    //     leftArm: {},
-    //     rightArm: {},
-    //     torso: {},
-    //     base: {}
-    //   };
-    // }
   },
   methods: {
     addToCart() {
@@ -129,36 +120,6 @@ export default {
     test(part) {
       console.log("part", part);
     }
-    // selectNextHead(){
-    //     this.selectedHeadIndex = getNextValidateIndex(this.selectedHeadIndex, availableParts.heads.length);
-    // },
-    // selectPreviousHead(){
-    //     this.selectedHeadIndex = getPreviousValidIndex(this.selectedHeadIndex, availableParts.heads.length);
-    // },
-    // selectPreviousTorso(){
-    //     this.selectedTorsoIndex = getPreviousValidIndex(this.selectedTorsoIndex, availableParts.torsos.length);
-    // },
-    // selectNextTorso(){
-    //     this.selectedTorsoIndex = getNextValidateIndex(this.selectedTorsoIndex, availableParts.torsos.length);
-    // },
-    // selectPreviousLeftArm(){
-    //     this.selecteLeftdArmIndex = getPreviousValidIndex(this.selecteLeftdArmIndex,availableParts.arms.length);
-    // },
-    // selectNextLeftArm(){
-    //     this.selecteLeftdArmIndex = getNextValidateIndex(this.selecteLeftdArmIndex,availableParts.arms.length);
-    // },
-    // selectPreviousRightArm(){
-    //     this.selecteRightdArmIndex = getPreviousValidIndex(this.selecteRightdArmIndex,availableParts.arms.length);
-    // },
-    // selectNextRightArm(){
-    //     this.selecteRightdArmIndex = getNextValidateIndex(this.selecteRightdArmIndex,availableParts.arms.length);
-    // },
-    // selectPreviousBase(){
-    //     this.selecteBaseIndex = getPreviousValidIndex(this.selecteBaseIndex,availableParts.arms.length);
-    // },
-    // selectNextBase(){
-    //     this.selecteBaseIndex = getNextValidateIndex(this.selecteBaseIndex,availableParts.arms.length);
-    // },
   }
 };
 </script>

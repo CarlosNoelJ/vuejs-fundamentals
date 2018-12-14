@@ -12,7 +12,7 @@ import getPartsMixin from './get-parts-mixin';
 
 export default {
     name:'PartInfo',
-    mixin: [getPartsMixin],
+    mixins: [getPartsMixin],
     // props:['partType','id'],
     props: {
         partType: { type:String },
