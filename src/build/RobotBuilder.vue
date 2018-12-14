@@ -114,7 +114,12 @@ export default {
         robot.rightArm.cost +
         robot.torso.cost +
         robot.base.cost;
-      this.$store.dispatch('addRobotToCart',Object.assign({}, robot, { cost }));
+      this.$store.dispatch('addRobotToCart',Object.assign({}, robot, { cost }))
+      .then((result) => {
+        this.$router.push('/cart');
+      }).catch((err) => {
+        
+      });;
       this.addedToCart = true;
     },
     test(part) {
