@@ -58,6 +58,7 @@
 
 <script>
 // import availableParts from "../data/parts";
+import { mapActions} from 'vuex';
 import createdHockMixin from "./created-hock-mixin";
 import PartSelector from "./PartSelector.vue";
 import CollapsibleSection from "../shared/CollapsibleSection.vue";
@@ -65,7 +66,7 @@ import CollapsibleSection from "../shared/CollapsibleSection.vue";
 export default {
   name: "RobotBuilder",
   created() {
-    this.$store.dispatch('robots/getParts');
+    this.getParts();
   },
   beforeRouteLeave(to, from, next) {
     if (this.addedToCart) {
@@ -106,6 +107,7 @@ export default {
     }
   },
   methods: {
+    ...mapActions('robots', ['getParts','addRobotToCart']),
     addToCart() {
       const robot = this.selectedRobot;
       const cost =
@@ -114,7 +116,7 @@ export default {
         robot.rightArm.cost +
         robot.torso.cost +
         robot.base.cost;
-      this.$store.dispatch('robots/addRobotToCart',Object.assign({}, robot, { cost }))
+      this.addRobotToCart(Object.assign({}, robot, { cost }))
       .then((result) => {
         this.$router.push('/cart');
       }).catch((err) => {
